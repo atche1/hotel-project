@@ -1,4 +1,6 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 public class Main {
     public static void makeAReservation() {
@@ -11,12 +13,21 @@ public class Main {
         System.out.println("Enter room number: ");
         int roomNumber = input.nextInt();
         if (roomNumber == 101 || roomNumber == 102 || roomNumber == 103 || roomNumber == 104 || roomNumber == 105){
+            System.out.println("Your date must look like this: example(2023-07-03)");
             System.out.println("Start date: ");
             String startDate = input.next();
+            LocalDate date = LocalDate.parse(startDate);
             System.out.println("End date: ");
             String endDate = input.next();
+            LocalDate date2 = LocalDate.parse(endDate);
             System.out.println("Enter notes: ");
             String notesText = input.next();
+            List<String> information = new ArrayList<>();
+            information.add(String.valueOf(roomNumber));
+            information.add(String.valueOf(date));
+            information.add(String.valueOf(date2));
+            information.add(notesText);
+            System.out.println(information);
             System.out.println("Reservation was created!");
 
         }
@@ -48,6 +59,10 @@ public class Main {
         if (choiceNumber == 1){
             makeAReservation();
         }
+        if (choiceNumber == 5){
+            makeAReservation();
+        }
+
 
     }
 }
