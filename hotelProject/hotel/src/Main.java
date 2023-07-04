@@ -1,8 +1,34 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 public class Main {
+    public static void makeStats() {
+        Scanner input = new Scanner(System.in);
+        Random random = new Random();
+        System.out.println("Start date: ");
+        System.out.println("Day: ");
+        int day = input.nextInt();
+        System.out.println("Month: ");
+        int month = input.nextInt();
+        System.out.println("Year: ");
+        int year = input.nextInt();
+        System.out.println("End date: ");
+        System.out.println("Day: ");
+        int dayEnd = input.nextInt();
+        System.out.println("Month: ");
+        int monthEnd = input.nextInt();
+        System.out.println("Year: ");
+        int yearEnd = input.nextInt();
+        int n = dayEnd - day;
+        for (int i = 0; i < n; i++) {
+            int randomNumber = random.nextInt(n);
+            for (int j = 101; j <= 105 ; j++) {
+                System.out.println(j + ": " + randomNumber);
+            }
+        }
+    }
     public static void makeAReservation() {
         Scanner input = new Scanner(System.in);
         ArrayList<Integer> numbers = new ArrayList();
@@ -13,7 +39,7 @@ public class Main {
         System.out.println("Enter room number: ");
         int roomNumber = input.nextInt();
         if (roomNumber == 101 || roomNumber == 102 || roomNumber == 103 || roomNumber == 104 || roomNumber == 105){
-            System.out.println("Your date must look like this: example(2023-07-03)");
+            System.out.println("Your date must look like this: example(2023-07-03), also you can only select dates between 2023-07-01 and 2023-07-31");
             System.out.println("Start date: ");
             String startDate = input.next();
             LocalDate date = LocalDate.parse(startDate);
@@ -59,8 +85,8 @@ public class Main {
         if (choiceNumber == 1){
             makeAReservation();
         }
-        if (choiceNumber == 5){
-            makeAReservation();
+        if (choiceNumber == 4){
+            makeStats();
         }
 
 
