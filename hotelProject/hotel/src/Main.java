@@ -4,6 +4,15 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
+    public static void findARoom() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter number of beds: ");
+        int numOfBeds = input.nextInt();
+        System.out.print("Enter start date: ");
+        int startDate = input.nextInt();
+        System.out.println("Enter end date: ");
+        int endDate = input.nextInt();
+    }
     public static void makeStats() {
         Scanner input = new Scanner(System.in);
         Random random = new Random();
@@ -22,13 +31,14 @@ public class Main {
         System.out.println("Year: ");
         int yearEnd = input.nextInt();
         int n = dayEnd - day;
-        for (int i = 0; i < n; i++) {
+        System.out.println("This shows you how many times a room is used in " + n + " days.");
             int randomNumber = random.nextInt(n);
-            for (int j = 101; j <= 105 ; j++) {
-                System.out.println(j + ": " + randomNumber);
-            }
+        for (int i = 101; i <=105 ; i++) {
+            randomNumber = random.nextInt(n);
+            System.out.println(i + ": " + randomNumber);
         }
-    }
+        }
+
     public static void makeAReservation() {
         Scanner input = new Scanner(System.in);
         ArrayList<Integer> numbers = new ArrayList();
@@ -49,10 +59,10 @@ public class Main {
             System.out.println("Enter notes: ");
             String notesText = input.next();
             List<String> information = new ArrayList<>();
-            information.add(String.valueOf(roomNumber));
-            information.add(String.valueOf(date));
-            information.add(String.valueOf(date2));
-            information.add(notesText);
+            information.add("Room number: " + roomNumber);
+            information.add("Start date: " + date);
+            information.add("End date: " + date2);
+            information.add("Notes: " + notesText);
             System.out.println(information);
             System.out.println("Reservation was created!");
 
@@ -88,6 +98,10 @@ public class Main {
         if (choiceNumber == 4){
             makeStats();
         }
+        if (choiceNumber == 5){
+            findARoom();
+        }
+
 
 
     }
