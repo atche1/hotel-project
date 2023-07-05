@@ -1,4 +1,3 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -9,32 +8,46 @@ public class Main {
         System.out.print("Enter number of beds: ");
         int numOfBeds = input.nextInt();
         System.out.print("Enter start date: ");
-        int startDate = input.nextInt();
+        String startDate = input.next();
+        String[] startElements = startDate.split("\\.");
+        int startDays = Integer.parseInt(startElements[0]);
         System.out.println("Enter end date: ");
-        int endDate = input.nextInt();
+        String endDate = input.next();
+        String[] endElements = endDate.split("\\.");
+        int endDays = Integer.parseInt(endElements[0]);
+        int nOfTimes = endDays - startDays;
+        if (numOfBeds > 1 && numOfBeds <= 3 || nOfTimes > 1 && nOfTimes <= 3){
+            System.out.println("Available rooms:");
+            System.out.println("~102~");
+            System.out.println("~103~");
+        }
+        else if (numOfBeds == 1 || nOfTimes == 1){
+            System.out.println("Available rooms:");
+            System.out.println("~101~");
+        }
+        else
+        {
+            System.out.println("Available rooms:");
+            System.out.println("~104~");
+            System.out.println("~105~");
+        }
     }
     public static void makeStats() {
         Scanner input = new Scanner(System.in);
         Random random = new Random();
         System.out.println("Start date: ");
-        System.out.println("Day: ");
-        int day = input.nextInt();
-        System.out.println("Month: ");
-        int month = input.nextInt();
-        System.out.println("Year: ");
-        int year = input.nextInt();
+        String startDate = input.next();
+        String[] startElements = startDate.split("\\.");
+        int startDays = Integer.parseInt(startElements[0]);
         System.out.println("End date: ");
-        System.out.println("Day: ");
-        int dayEnd = input.nextInt();
-        System.out.println("Month: ");
-        int monthEnd = input.nextInt();
-        System.out.println("Year: ");
-        int yearEnd = input.nextInt();
-        int n = dayEnd - day;
-        System.out.println("This shows you how many times a room is used in " + n + " days.");
-            int randomNumber = random.nextInt(n);
+        String endDate = input.next();
+        String[] endElements = endDate.split("\\.");
+        int endDays = Integer.parseInt(endElements[0]);
+        int nOfTimes = endDays - startDays;
+        System.out.println("This shows you how many times a room is used in " + nOfTimes + " days.");
+            int randomNumber = random.nextInt(nOfTimes);
         for (int i = 101; i <=105 ; i++) {
-            randomNumber = random.nextInt(n);
+            randomNumber = random.nextInt(nOfTimes);
             System.out.println(i + ": " + randomNumber);
         }
         }
@@ -49,19 +62,16 @@ public class Main {
         System.out.println("Enter room number: ");
         int roomNumber = input.nextInt();
         if (roomNumber == 101 || roomNumber == 102 || roomNumber == 103 || roomNumber == 104 || roomNumber == 105){
-            System.out.println("Your date must look like this: example(2023-07-03), also you can only select dates between 2023-07-01 and 2023-07-31");
             System.out.println("Start date: ");
             String startDate = input.next();
-            LocalDate date = LocalDate.parse(startDate);
             System.out.println("End date: ");
             String endDate = input.next();
-            LocalDate date2 = LocalDate.parse(endDate);
             System.out.println("Enter notes: ");
             String notesText = input.next();
             List<String> information = new ArrayList<>();
             information.add("Room number: " + roomNumber);
-            information.add("Start date: " + date);
-            information.add("End date: " + date2);
+            information.add("Start date: " + startDate);
+            information.add("End date: " + endDate);
             information.add("Notes: " + notesText);
             System.out.println(information);
             System.out.println("Reservation was created!");
@@ -89,7 +99,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please select what you want to do (1 - Make a reservation; 2- List free rooms; 3 - Checkout room; 4 - Stats; 5 - Find a room; 6 - Update a room)");
+        System.out.println("Please select what you want to do (1 - Make a reservation; 2- List free rooms; 3 - Checkout room; 4 - Stats; 5 - Find a room; 6 - Update a room; 7 - End)");
         System.out.print("Enter your choice: ");
         int choiceNumber = input.nextInt();
         if (choiceNumber == 1){
@@ -101,8 +111,19 @@ public class Main {
         if (choiceNumber == 5){
             findARoom();
         }
-
-
-
+        while(choiceNumber != 7){
+            System.out.println("Please select what you want to do (1 - Make a reservation; 2- List free rooms; 3 - Checkout room; 4 - Stats; 5 - Find a room; 6 - Update a room; 7 - End)");
+            System.out.print("Enter your choice: ");
+            choiceNumber = input.nextInt();
+            if (choiceNumber == 1){
+                makeAReservation();
+            }
+            if (choiceNumber == 4){
+                makeStats();
+            }
+            if (choiceNumber == 5){
+                findARoom();
+            }
+        }
     }
 }
