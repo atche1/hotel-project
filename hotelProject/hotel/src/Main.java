@@ -10,11 +10,11 @@ public class Main {
         String[] roomNo103 = {"No","Garden"};
         String[] roomNo104 = {"Yes","Mountain"};
         String[] roomNo105 = {"No","Mountain"};
-        System.out.println("Do you want breakfast? - answer with Yes or No.");
+        System.out.println("Do you want breakfast? - answer with *Yes* or *No*.");
         String breakfastAnswer = input.next();
-        System.out.println("Do you need a cot? - if you need answer with Cot and if you do not need answer with No.");
+        System.out.println("Do you need a cot? - if you need answer with *Cot* and if you do not need answer with *Without*.");
         String cotAnswer = input.next();
-        System.out.println("What do you want to see from your room? - answer with Sea, Garden or mountain.");
+        System.out.println("What do you want to see from your room? - answer with *Sea*, *Garden* or *Mountain*.");
         String viewAnswer = input.next();
         for (int i = 0; i < roomNo101.length; i++) {
             if (breakfastAnswer.equals(roomNo101[i])){
@@ -71,20 +71,19 @@ public class Main {
                 System.out.println("Room with view of the mountain: 105");
             }
         }
-
-
-
     }
 
-    public static void listFreeRooms(int number) {
-        ArrayList<Integer> numbers = new ArrayList();
+    public static void listFreeRooms() {
+        Scanner input = new Scanner(System.in);
 
     }
 
     public static void findARoom() {
         Scanner input = new Scanner(System.in);
+        System.out.println("AVAILABLE NUMBER OF BEDS - 1,2 AND MAX 3.");
         System.out.print("Enter number of beds: ");
         int numOfBeds = input.nextInt();
+        System.out.println("Max days that you can use this hotel this month - 16 DAYS.");
         System.out.print("Enter start date: ");
         String startDate = input.next();
         String[] startElements = startDate.split("\\.");
@@ -94,21 +93,42 @@ public class Main {
         String[] endElements = endDate.split("\\.");
         int endDays = Integer.parseInt(endElements[0]);
         int nOfTimes = endDays - startDays;
-        if (numOfBeds > 1 && numOfBeds <= 3 || nOfTimes > 1 && nOfTimes <= 3){
-            System.out.println("Available rooms:");
-            System.out.println("~102~");
-            System.out.println("~103~");
+        int i;
+        for (i = 0; i <=3; i++) {
+            int[] infoRoom101 = {1, i};
+            if (numOfBeds == infoRoom101[0] && nOfTimes == infoRoom101[1]){
+                System.out.println("Available room ~101~");
+            }
         }
-        else if (numOfBeds == 1 || nOfTimes == 1){
-            System.out.println("Available rooms:");
-            System.out.println("~101~");
+        for (i = 3; i <= 5; i++) {
+            int[] infoRoom102 = {2, i};
+            if (numOfBeds == infoRoom102[0] && nOfTimes == infoRoom102[1]){
+                System.out.println("Available room ~102~");
+            }
         }
-        else
-        {
-            System.out.println("Available rooms:");
-            System.out.println("~104~");
-            System.out.println("~105~");
+        for (i = 5; i <= 9; i++) {
+            int[] infoRoom103 = {2, i};
+            if (numOfBeds == infoRoom103[0] && nOfTimes == infoRoom103[1]){
+                System.out.println("Available room ~103~");
+
+            }
         }
+        for (i = 9; i <= 14; i++) {
+            int[] infoRoom104 = {2, i};
+            if (numOfBeds == infoRoom104[0] && nOfTimes == infoRoom104[1]){
+                System.out.println("Available room ~104~");
+            }
+        }
+        for (i = 14; i <= 16; i++) {
+            int[] infoRoom105 = {3, i};
+            if (numOfBeds == infoRoom105[0] && nOfTimes == infoRoom105[1]){
+                System.out.println("Available room ~105~");
+            }
+        }
+        if (numOfBeds > 5 || nOfTimes > 16){
+            System.out.println("There is no available rooms!");
+        }
+
     }
 
     public static void makeStats() {
@@ -178,6 +198,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        System.out.println("WELCOME!");
         System.out.println("Please select what you want to do (1 - Make a reservation; 2- List free rooms; 3 - Checkout room; 4 - Stats; 5 - Find a room; 6 - Update a room; 7 - End)");
         System.out.print("Enter your choice: ");
         int choiceNumber = input.nextInt();
