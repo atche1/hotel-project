@@ -90,6 +90,7 @@ public class Main {
         System.out.println("These are the rooms that are free!" + numbersOfRooms);
 
     }
+
     public static void checkoutRoom() {
         int[] numbers = {101, 102, 103, 104, 105};
         Random random = new Random();
@@ -108,12 +109,13 @@ public class Main {
         String startDate = input.next();
         String[] startElements = startDate.split("\\.");
         int startDays = Integer.parseInt(startElements[0]);
-        System.out.println("Enter end date: ");
+        System.out.print("Enter end date: ");
         String endDate = input.next();
         String[] endElements = endDate.split("\\.");
         int endDays = Integer.parseInt(endElements[0]);
         int nOfTimes = endDays - startDays;
         int i;
+        boolean isAvailable = false;
         for (i = 0; i <=3; i++) {
             int[] infoRoom101 = {1, i};
             if (numOfBeds == infoRoom101[0] && nOfTimes == infoRoom101[1]){
@@ -121,16 +123,18 @@ public class Main {
             }
         }
         for (i = 3; i <= 5; i++) {
-            int[] infoRoom102 = {2, i};
+            int[] infoRoom102 = {1, i};
             if (numOfBeds == infoRoom102[0] && nOfTimes == infoRoom102[1]){
                 System.out.println("Available room ~102~");
+            }
+            else{
+                isAvailable = true;
             }
         }
         for (i = 5; i <= 9; i++) {
             int[] infoRoom103 = {2, i};
             if (numOfBeds == infoRoom103[0] && nOfTimes == infoRoom103[1]){
                 System.out.println("Available room ~103~");
-
             }
         }
         for (i = 9; i <= 14; i++) {
@@ -138,17 +142,25 @@ public class Main {
             if (numOfBeds == infoRoom104[0] && nOfTimes == infoRoom104[1]){
                 System.out.println("Available room ~104~");
             }
+            else{
+               isAvailable = true;
+            }
         }
         for (i = 14; i <= 16; i++) {
             int[] infoRoom105 = {3, i};
             if (numOfBeds == infoRoom105[0] && nOfTimes == infoRoom105[1]){
                 System.out.println("Available room ~105~");
             }
+            else{
+                isAvailable = true;
+            }
         }
-        if (numOfBeds > 5 || nOfTimes > 16){
+        if (isAvailable == true){
             System.out.println("There is no available rooms!");
         }
-
+        if (numOfBeds > 3 || nOfTimes > 16){
+            System.out.println("There is no available rooms!");
+        }
     }
 
     public static void makeStats() {
