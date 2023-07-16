@@ -3,7 +3,126 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 public class Main {
-    public static void updateARoom() {
+    public static void updateRoom101(String breakfastAnswer,String cotAnswer,String viewAnswer) {
+        String[] roomNo101 = {"No","Sea"};
+        for (int i = 0; i < roomNo101.length; i++) {
+            if (breakfastAnswer.equals(roomNo101[i])){
+                System.out.println("Room without breakfast: 101");
+            }
+            else if (cotAnswer.equals(roomNo101[i])){
+                System.out.println("Room with cot: 101");
+            }
+            else if (viewAnswer.equals(roomNo101[i])){
+                System.out.println("Room with view of the sea: 101");
+            }
+        }
+    }
+
+    public static void updateRoom102() {
+        Scanner input = new Scanner(System.in);
+        String[] roomNo102 = {"Yes","Sea","Cot"};
+        System.out.println("Do you want breakfast? - answer with *Yes* or *No*.");
+        String breakfastAnswer = input.next();
+        System.out.println("Do you need a cot? - if you need answer with *Cot* and if you do not need answer with *Without*.");
+        String cotAnswer = input.next();
+        System.out.println("What do you want to see from your room? - answer with *Sea*, *Garden* or *Mountain*.");
+        String viewAnswer = input.next();
+        for (int i = 0; i < roomNo102.length; i++) {
+            if (breakfastAnswer.equals(roomNo102[i])){
+                System.out.println("Room with breakfast: 102");
+            }
+            else if (cotAnswer.equals(roomNo102[i])){
+                System.out.println("Room with cot: 102");
+            }
+            else if (viewAnswer.equals(roomNo102[i])){
+                System.out.println("Room with view of the sea: 102");
+            }
+        }
+    }
+    public static void updateRoom103() {
+        Scanner input = new Scanner(System.in);
+        String[] roomNo103 = {"No","Garden"};
+        System.out.println("Do you want breakfast? - answer with *Yes* or *No*.");
+        String breakfastAnswer = input.next();
+        System.out.println("Do you need a cot? - if you need answer with *Cot* and if you do not need answer with *Without*.");
+        String cotAnswer = input.next();
+        System.out.println("What do you want to see from your room? - answer with *Sea*, *Garden* or *Mountain*.");
+        String viewAnswer = input.next();
+        for (int i = 0; i < roomNo103.length; i++) {
+            if (breakfastAnswer.equals(roomNo103[i])){
+                System.out.println("Room without breakfast: 103");
+            }
+            else if (cotAnswer.equals(roomNo103[i])){
+                System.out.println("Room with cot: 103");
+            }
+            else if (viewAnswer.equals(roomNo103[i])){
+                System.out.println("Room with view of the garden: 103");
+            }
+        }
+    }
+    public static void updateRoom104() {
+        Scanner input = new Scanner(System.in);
+        String[] roomNo104 = {"Yes","Mountain"};
+        System.out.println("Do you want breakfast? - answer with *Yes* or *No*.");
+        String breakfastAnswer = input.next();
+        System.out.println("Do you need a cot? - if you need answer with *Cot* and if you do not need answer with *Without*.");
+        String cotAnswer = input.next();
+        System.out.println("What do you want to see from your room? - answer with *Sea*, *Garden* or *Mountain*.");
+        String viewAnswer = input.next();
+        for (int i = 0; i < roomNo104.length; i++) {
+            if (breakfastAnswer.equals(roomNo104[i])){
+                System.out.println("Room with breakfast: 104");
+            }
+            else if (cotAnswer.equals(roomNo104[i])){
+                System.out.println("Room with cot: 104");
+            }
+            else if (viewAnswer.equals(roomNo104[i])){
+                System.out.println("Room with view of the mountain: 104");
+            }
+        }
+    }
+    public static void updateRoom105() {
+        Scanner input = new Scanner(System.in);
+        String[] roomNo105 = {"No","Mountain"};
+        System.out.println("Do you want breakfast? - answer with *Yes* or *No*.");
+        String breakfastAnswer = input.next();
+        System.out.println("Do you need a cot? - if you need answer with *Cot* and if you do not need answer with *Without*.");
+        String cotAnswer = input.next();
+        System.out.println("What do you want to see from your room? - answer with *Sea*, *Garden* or *Mountain*.");
+        String viewAnswer = input.next();
+        for (int i = 0; i < roomNo105.length; i++) {
+            if (breakfastAnswer.equals(roomNo105[i])){
+                System.out.println("Room without breakfast: 105");
+            }
+            else if (cotAnswer.equals(roomNo105[i])){
+                System.out.println("Room with cot: 105");
+            }
+            else if (viewAnswer.equals(roomNo105[i])){
+                System.out.println("Room with view of the mountain: 105");
+            }
+        }
+    }
+    public static void updateRooms() {
+        Scanner input = new Scanner(System.in);
+        String[] roomNo101 = {"No","Sea"};
+        String[] roomNo102 = {"Yes","Sea","Cot"};
+        String[] roomNo103 = {"No","Garden"};
+        String[] roomNo104 = {"Yes","Mountain"};
+        String[] roomNo105 = {"No","Mountain"};
+        System.out.println("Do you want breakfast? - answer with *Yes* or *No*.");
+        String breakfastAnswer = input.next();
+        System.out.println("Do you need a cot? - if you need answer with *Cot* and if you do not need answer with *Without*.");
+        String cotAnswer = input.next();
+        System.out.println("What do you want to see from your room? - answer with *Sea*, *Garden* or *Mountain*.");
+        String viewAnswer = input.next();
+        updateRoom101();
+        updateRoom102();
+        updateRoom103();
+        updateRoom104();
+        updateRoom105();
+    }
+
+    public static void updateRooms2() {
         Scanner input = new Scanner(System.in);
         String[] roomNo101 = {"No","Sea"};
         String[] roomNo102 = {"Yes","Sea","Cot"};
@@ -64,39 +183,13 @@ public class Main {
             if (breakfastAnswer.equals(roomNo105[i])){
                 System.out.println("Room without breakfast: 105");
             }
-            else if (cotAnswer.equals(roomNo104[i])){
+            else if (cotAnswer.equals(roomNo105[i])){
                 System.out.println("Room with cot: 105");
             }
-            else if (viewAnswer.equals(roomNo104[i])){
+            else if (viewAnswer.equals(roomNo105[i])){
                 System.out.println("Room with view of the mountain: 105");
             }
         }
-    }
-
-    public static void listFreeRooms() {
-        ArrayList<Integer> numbersOfRooms = new ArrayList<>();
-        for (int i = 101; i <= 105; i++) {
-            numbersOfRooms.add(i);
-        }
-        int[] numbers = {101, 102, 103, 104, 105};
-        Random random = new Random();
-        int randomIndex = random.nextInt(numbers.length);
-        int randomNumber = numbers[randomIndex];
-        for (int i = 0; i < numbersOfRooms.size(); i++) {
-            if (randomNumber == numbersOfRooms.get(i)){
-                numbersOfRooms.remove(i);
-            }
-        }
-        System.out.println("These are the rooms that are free!" + numbersOfRooms);
-
-    }
-
-    public static void checkoutRoom() {
-        int[] numbers = {101, 102, 103, 104, 105};
-        Random random = new Random();
-        int randomIndex = random.nextInt(numbers.length);
-        int randomNumber = numbers[randomIndex];
-        System.out.println("You can not use room " + randomNumber);
     }
 
     public static void findARoom() {
@@ -183,6 +276,32 @@ public class Main {
         }
         }
 
+    public static void checkoutRoom() {
+        int[] numbers = {101, 102, 103, 104, 105};
+        Random random = new Random();
+        int randomIndex = random.nextInt(numbers.length);
+        int randomNumber = numbers[randomIndex];
+        System.out.println("You can not use room " + randomNumber);
+    }
+
+    public static void listFreeRooms() {
+        ArrayList<Integer> numbersOfRooms = new ArrayList<>();
+        for (int i = 101; i <= 105; i++) {
+            numbersOfRooms.add(i);
+        }
+        int[] numbers = {101, 102, 103, 104, 105};
+        Random random = new Random();
+        int randomIndex = random.nextInt(numbers.length);
+        int randomNumber = numbers[randomIndex];
+        for (int i = 0; i < numbersOfRooms.size(); i++) {
+            if (randomNumber == numbersOfRooms.get(i)){
+                numbersOfRooms.remove(i);
+            }
+        }
+        System.out.println("These are the rooms that are free!" + numbersOfRooms);
+
+    }
+
     public static void makeAReservation() {
         Scanner input = new Scanner(System.in);
         ArrayList<Integer> numbers = new ArrayList();
@@ -227,8 +346,7 @@ public class Main {
             numbers.remove(4);
         }
     }
-
-    public static void main(String[] args) {
+    public static void showMenu() {
         Scanner input = new Scanner(System.in);
         System.out.println("WELCOME!");
         System.out.println("Please select what you want to do (1 - Make a reservation; 2- List free rooms; 3 - Checkout room; 4 - Stats; 5 - Find a room; 6 - Update a room; 7 - End)");
@@ -244,14 +362,17 @@ public class Main {
             findARoom();
         }
         if (choiceNumber == 6){
-            updateARoom();
+            updateRooms();
         }
         if (choiceNumber == 3){
-           checkoutRoom();
+            checkoutRoom();
+        }
+        if (choiceNumber == 2){
+            listFreeRooms();
         }
         while(choiceNumber != 7){
             System.out.println("WELCOME!");
-            System.out.println("Please select what you want to do (1 - Make a reservation; 2- List free rooms; 3 - Checkout room; 4 - Stats; 5 - Find a room; 6 - Update a room; 7 - End)");
+            System.out.println("Please select what do you want to do (1 - Make a reservation; 2- List free rooms; 3 - Checkout room; 4 - Stats; 5 - Find a room; 6 - Update a room; 7 - End)");
             System.out.print("Enter your choice: ");
             choiceNumber = input.nextInt();
             if (choiceNumber == 1){
@@ -264,7 +385,7 @@ public class Main {
                 findARoom();
             }
             if (choiceNumber == 6){
-                updateARoom();
+                updateRooms();
             }
             if (choiceNumber == 3){
                 checkoutRoom();
@@ -274,5 +395,9 @@ public class Main {
             }
 
         }
+    }
+
+    public static void main(String[] args) {
+        showMenu();
     }
 }
