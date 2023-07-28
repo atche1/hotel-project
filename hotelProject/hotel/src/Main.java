@@ -164,25 +164,19 @@ public class Main {
         System.out.println("You can not use room " + randomNumber);
     }
 
-    public static void listFreeRooms() {
+    public static void listFreeRooms(int number) {
         ArrayList<Integer> numbersOfRooms = new ArrayList<>();
         for (int i = 101; i <= 105; i++) {
             numbersOfRooms.add(i);
-        }
-        int[] numbers = {101, 102, 103, 104, 105};
-        Random random = new Random();
-        int randomIndex = random.nextInt(numbers.length);
-        int randomNumber = numbers[randomIndex];
-        for (int i = 0; i < numbersOfRooms.size(); i++) {
-            if (randomNumber == numbersOfRooms.get(i)){
-                numbersOfRooms.remove(i);
+            if (number == numbersOfRooms.get(i)){
+                numbersOfRooms.remove(numbersOfRooms.get(i));
             }
         }
         System.out.println("These are the rooms that are free!" + numbersOfRooms);
 
     }
 
-    public static void makeAReservation() {
+    public static int makeAReservation() {
         Scanner input = new Scanner(System.in);
         ArrayList<Integer> numbers = new ArrayList();
         for (int i = 101; i <= 105; i++) {
@@ -225,6 +219,7 @@ public class Main {
         else if (roomNumber == 105){
             numbers.remove(4);
         }
+        return roomNumber;
     }
     public static void showMenu() {
         Scanner input = new Scanner(System.in);
@@ -248,7 +243,8 @@ public class Main {
             checkoutRoom();
         }
         if (choiceNumber == 2){
-            listFreeRooms();
+            int roomNum = makeAReservation();
+            listFreeRooms(roomNum);
         }
         while(choiceNumber != 7){
             System.out.println("WELCOME!");
@@ -271,7 +267,8 @@ public class Main {
                 checkoutRoom();
             }
             if (choiceNumber == 2){
-                listFreeRooms();
+                int roomNum = makeAReservation();
+                listFreeRooms(roomNum);
             }
 
         }
