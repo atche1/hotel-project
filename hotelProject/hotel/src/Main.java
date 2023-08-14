@@ -157,24 +157,18 @@ public class Main {
         }
 
     public static void checkoutRoom() {
-        int[] numbers = {101, 102, 103, 104, 105};
-        Random random = new Random();
-        int randomIndex = random.nextInt(numbers.length);
-        int randomNumber = numbers[randomIndex];
-        System.out.println("You can not use room " + randomNumber);
+        int roomNum = makeAReservation();
+        System.out.println("You can not use room " + roomNum);
     }
 
     public static void listFreeRooms() {
+        int roomNum = makeAReservation();
         ArrayList<Integer> numbersOfRooms = new ArrayList<>();
         for (int i = 101; i <= 105; i++) {
             numbersOfRooms.add(i);
         }
-        int[] numbers = {101, 102, 103, 104, 105};
-        Random random = new Random();
-        int randomIndex = random.nextInt(numbers.length);
-        int randomNumber = numbers[randomIndex];
         for (int i = 0; i < numbersOfRooms.size(); i++) {
-            if (randomNumber == numbersOfRooms.get(i)){
+            if (roomNum == numbersOfRooms.get(i)){
                 numbersOfRooms.remove(i);
             }
         }
